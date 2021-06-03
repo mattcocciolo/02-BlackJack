@@ -7,6 +7,7 @@
 
 let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
+const especiales = ['A', 'J', 'Q', 'K']
 
 const crearDeck = () => {
     for ( let i = 2; i <= 10; i++ ) {
@@ -15,8 +16,16 @@ const crearDeck = () => {
             
         }
     }
+    for ( let tipo in tipos ) {
+        for ( esp in especiales ){
+            deck.push( especiales[esp] + tipos[tipo] );
+        }
+    }
 
     console.log(deck);
+    deck = _.shuffle( deck );
+    console.log(deck);
+    return deck;
 }
 
 
